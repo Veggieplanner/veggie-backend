@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: veggie-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn run:app"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: OPENAI_API_KEY
+        value: your-key-here
+      - key: DATABASE_URL
+        value: sqlite:///data.db
